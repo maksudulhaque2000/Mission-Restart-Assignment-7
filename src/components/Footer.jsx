@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -11,10 +12,9 @@ const Footer = () => {
               CS — Ticket System
             </h3>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+              Our customer support ticket system helps businesses manage and
+              resolve customer issues efficiently. Track, prioritize, and
+              resolve tickets with ease.
             </p>
           </div>
 
@@ -23,19 +23,19 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-white transition">
+                <Link to="/" className="hover:text-white transition">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition">
-                  Our Mission
-                </a>
+                <Link to="/blog" className="hover:text-white transition">
+                  Blog
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition">
+                <Link to="/contact" className="hover:text-white transition">
                   Contact Sales
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -45,19 +45,19 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-white transition">
+                <Link to="/faq" className="hover:text-white transition">
                   Products & Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition">
+                <Link to="/changelog" className="hover:text-white transition">
                   Customer Stories
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition">
+                <Link to="/download" className="hover:text-white transition">
                   Download Apps
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -67,19 +67,19 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Information</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-white transition">
+                <Link to="/faq" className="hover:text-white transition">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition">
+                <Link to="/changelog" className="hover:text-white transition">
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition">
+                <Link to="/contact" className="hover:text-white transition">
                   Join Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

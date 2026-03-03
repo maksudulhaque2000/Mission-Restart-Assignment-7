@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Navbar from "./components/Navbar";
-import Banner from "./components/Banner";
-import TicketCard from "./components/TicketCard";
-import TaskStatus from "./components/TaskStatus";
-import ResolvedList from "./components/ResolvedList";
 import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import FAQ from "./pages/FAQ";
+import Changelog from "./pages/Changelog";
+import Blog from "./pages/Blog";
+import Download from "./pages/Download";
+import Contact from "./pages/Contact";
 import ticketsData from "./data/tickets.json";
 
 function App() {
@@ -93,74 +96,50 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Toast Container */}
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+    <Router>
+      <div className="min-h-screen bg-white">
+        {/* Toast Container */}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
 
-      {/* Navbar */}
-      <Navbar onNewTicket={handleNewTicket} />
+        {/* Navbar */}
+        <Navbar onNewTicket={handleNewTicket} />
 
-      {/* Banner with Stats */}
-      <Banner
-        inProgressCount={inProgressTasks.length}
-        resolvedCount={resolvedTasks.length}
-      />
+        {/* Routes */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                tickets={tickets}
+                inProgressTasks={inProgressTasks}
+                resolvedTasks={resolvedTasks}
+                onAddToProgress={handleAddToProgress}
+                onCompleteTask={handleCompleteTask}
+              />
+            }
+          />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/changelog" element={<Changelog />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/download" element={<Download />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-8 bg-gray-50">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Left Side - Customer Tickets (2 columns) */}
-          <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              Customer Tickets
-            </h2>
-
-            {tickets.length === 0 ? (
-              <div className="bg-white rounded-lg p-12 text-center shadow-sm">
-                <p className="text-gray-400">
-                  All tickets have been resolved! 🎉
-                </p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {tickets.map((ticket) => (
-                  <TicketCard
-                    key={ticket.id}
-                    ticket={ticket}
-                    onAddToProgress={handleAddToProgress}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Right Side - Task Status */}
-          <div className="lg:col-span-1">
-            <TaskStatus
-              tasks={inProgressTasks}
-              onComplete={handleCompleteTask}
-            />
-
-            {/* Resolved List */}
-            <ResolvedList resolvedTickets={resolvedTasks} />
-          </div>
-        </div>
+        {/* Footer */}
+        <Footer />
       </div>
-
-      {/* Footer */}
-      <Footer />
-    </div>
+    </Router>
   );
 }
 
