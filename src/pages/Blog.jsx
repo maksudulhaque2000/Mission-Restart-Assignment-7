@@ -104,12 +104,12 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <div className="bg-white border-b border-gray-200 py-12 px-6">
+      <div className="bg-white border-b border-gray-200 py-8 sm:py-12 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             Support Blog
           </h1>
-          <p className="text-lg text-gray-600 mb-8">
+          <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
             Tips, guides, and best practices for exceptional customer support
           </p>
 
@@ -118,7 +118,7 @@ const Blog = () => {
             {categories.map((category) => (
               <button
                 key={category}
-                className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 hover:bg-purple-100 hover:text-purple-600 text-gray-700 transition"
+                className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-gray-100 hover:bg-purple-100 hover:text-purple-600 text-gray-700 transition"
               >
                 {category}
               </button>
@@ -128,47 +128,53 @@ const Blog = () => {
       </div>
 
       {/* Blog Posts Grid */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {posts.map((post) => (
             <article
               key={post.id}
               className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition cursor-pointer"
             >
               {/* Post Image/Icon */}
-              <div className="bg-gradient-to-br from-purple-500 to-blue-600 h-48 flex items-center justify-center text-6xl">
+              <div className="bg-gradient-to-br from-purple-500 to-blue-600 h-40 sm:h-48 flex items-center justify-center text-5xl sm:text-6xl">
                 {post.image}
               </div>
 
               {/* Post Content */}
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 {/* Category & Read Time */}
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-medium text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <span className="text-[10px] sm:text-xs font-medium text-purple-600 bg-purple-50 px-2 sm:px-3 py-1 rounded-full">
                     {post.category}
                   </span>
-                  <span className="text-xs text-gray-500">{post.readTime}</span>
+                  <span className="text-[10px] sm:text-xs text-gray-500">
+                    {post.readTime}
+                  </span>
                 </div>
 
                 {/* Title */}
-                <h2 className="text-xl font-bold text-gray-900 mb-3 hover:text-purple-600 transition">
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 hover:text-purple-600 transition">
                   {post.title}
                 </h2>
 
                 {/* Excerpt */}
-                <p className="text-gray-600 mb-4 line-clamp-3">
+                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
 
                 {/* Author & Date */}
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-gray-100">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-semibold text-sm">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-semibold text-xs sm:text-sm">
                       {post.author.charAt(0)}
                     </div>
-                    <span className="text-sm text-gray-700">{post.author}</span>
+                    <span className="text-xs sm:text-sm text-gray-700">
+                      {post.author}
+                    </span>
                   </div>
-                  <span className="text-xs text-gray-500">{post.date}</span>
+                  <span className="text-[10px] sm:text-xs text-gray-500">
+                    {post.date}
+                  </span>
                 </div>
               </div>
             </article>
@@ -176,28 +182,28 @@ const Blog = () => {
         </div>
 
         {/* Load More Button */}
-        <div className="text-center mt-12">
-          <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-medium transition">
+        <div className="text-center mt-8 sm:mt-12">
+          <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-md text-sm sm:text-base font-medium transition">
             Load More Articles
           </button>
         </div>
 
         {/* Newsletter Subscription */}
-        <div className="mt-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg p-8 text-center text-white">
-          <h3 className="text-2xl font-bold mb-3">
+        <div className="mt-8 sm:mt-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg p-6 sm:p-8 text-center text-white">
+          <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
             Subscribe to Our Newsletter
           </h3>
-          <p className="mb-6 opacity-90">
+          <p className="text-sm sm:text-base mb-5 sm:mb-6 opacity-90">
             Get the latest support tips and best practices delivered to your
             inbox weekly
           </p>
-          <div className="max-w-md mx-auto flex gap-2">
+          <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
             <input
               type="email"
               placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+              className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 rounded-md text-sm sm:text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
             />
-            <button className="bg-white text-purple-600 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition">
+            <button className="bg-white text-purple-600 px-5 sm:px-6 py-2.5 sm:py-3 rounded-md text-sm sm:text-base font-medium hover:bg-gray-100 transition">
               Subscribe
             </button>
           </div>

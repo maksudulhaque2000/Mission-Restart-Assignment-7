@@ -14,11 +14,11 @@ const TicketCard = ({ ticket, onAddToProgress }) => {
   return (
     <div
       onClick={() => onAddToProgress(ticket)}
-      className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition cursor-pointer border border-gray-200"
+      className="bg-white rounded-lg p-4 sm:p-5 shadow-sm hover:shadow-md transition cursor-pointer border border-gray-200"
     >
       {/* Title and Status */}
-      <div className="flex justify-between items-start mb-3">
-        <h3 className="text-base font-semibold text-gray-800 flex-1 pr-3">
+      <div className="flex justify-between items-start mb-2 sm:mb-3">
+        <h3 className="text-sm sm:text-base font-semibold text-gray-800 flex-1 pr-2 sm:pr-3">
           {ticket.title}
         </h3>
         <span className={`status-badge ${getStatusClass(ticket.status)}`}>
@@ -27,12 +27,12 @@ const TicketCard = ({ ticket, onAddToProgress }) => {
       </div>
 
       {/* Description */}
-      <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+      <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 line-clamp-2">
         {ticket.description}
       </p>
 
       {/* Meta Information */}
-      <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
+      <div className="flex items-center justify-between text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3">
         <span className="flex items-center gap-1">
           #{ticket.id} · {ticket.customer}
         </span>

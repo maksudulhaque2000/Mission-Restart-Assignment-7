@@ -118,49 +118,56 @@ const Changelog = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <div className="bg-white border-b border-gray-200 py-12 px-6">
+      <div className="bg-white border-b border-gray-200 py-8 sm:py-12 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Changelog</h1>
-          <p className="text-lg text-gray-600">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+            Changelog
+          </h1>
+          <p className="text-base sm:text-lg text-gray-600">
             Track all updates, improvements, and bug fixes to our ticket system
           </p>
         </div>
       </div>
 
       {/* Changelog Content */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="space-y-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="space-y-6 sm:space-y-8">
           {changes.map((change, index) => (
             <div
               key={index}
               className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
             >
               {/* Version Header */}
-              <div className="bg-gray-50 border-b border-gray-200 px-6 py-4">
-                <div className="flex items-center justify-between flex-wrap gap-3">
-                  <div className="flex items-center gap-3">
-                    <h2 className="text-2xl font-bold text-gray-900">
+              <div className="bg-gray-50 border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4">
+                <div className="flex items-center justify-between flex-wrap gap-2 sm:gap-3">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
                       v{change.version}
                     </h2>
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-medium border ${getTypeColor(change.type)}`}
+                      className={`px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium border ${getTypeColor(change.type)}`}
                     >
                       {change.type}
                     </span>
                   </div>
-                  <span className="text-sm text-gray-600">
+                  <span className="text-xs sm:text-sm text-gray-600">
                     📅 {change.date}
                   </span>
                 </div>
               </div>
 
               {/* Changes List */}
-              <div className="px-6 py-5">
-                <ul className="space-y-3">
+              <div className="px-4 sm:px-6 py-4 sm:py-5">
+                <ul className="space-y-2 sm:space-y-3">
                   {change.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start gap-3">
-                      <span className="text-green-500 mt-1">✓</span>
-                      <span className="text-gray-700 flex-1">{item}</span>
+                    <li
+                      key={itemIndex}
+                      className="flex items-start gap-2 sm:gap-3"
+                    >
+                      <span className="text-green-500 mt-0.5 sm:mt-1">✓</span>
+                      <span className="text-sm sm:text-base text-gray-700 flex-1">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -170,8 +177,8 @@ const Changelog = () => {
         </div>
 
         {/* Footer Note */}
-        <div className="mt-12 bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-          <p className="text-gray-700">
+        <div className="mt-8 sm:mt-12 bg-blue-50 border border-blue-200 rounded-lg p-5 sm:p-6 text-center">
+          <p className="text-sm sm:text-base text-gray-700">
             🔔 <strong>Stay Updated:</strong> Subscribe to our newsletter to
             receive notifications about new releases and features.
           </p>

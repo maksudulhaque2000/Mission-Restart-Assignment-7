@@ -67,34 +67,36 @@ const FAQ = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <div className="bg-white border-b border-gray-200 py-12 px-6">
+      <div className="bg-white border-b border-gray-200 py-8 sm:py-12 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             Frequently Asked Questions
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             Find answers to common questions about our ticket support system
           </p>
         </div>
       </div>
 
       {/* FAQ Content */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="space-y-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="space-y-4 sm:space-y-6">
           {faqs.map((faq, index) => (
             <div
               key={faq.id}
-              className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition"
+              className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 hover:shadow-md transition"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-sm sm:text-base">
                   {index + 1}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">
                     {faq.question}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               </div>
             </div>
@@ -102,15 +104,15 @@ const FAQ = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="mt-12 bg-purple-50 border border-purple-200 rounded-lg p-8 text-center">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">
+        <div className="mt-8 sm:mt-12 bg-purple-50 border border-purple-200 rounded-lg p-6 sm:p-8 text-center">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
             Still have questions?
           </h3>
-          <p className="text-gray-600 mb-4">
+          <p className="text-sm sm:text-base text-gray-600 mb-4">
             Can't find the answer you're looking for? Please reach out to our
             support team.
           </p>
-          <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md font-medium transition">
+          <button className="bg-purple-600 hover:bg-purple-700 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-md text-sm sm:text-base font-medium transition">
             Contact Support
           </button>
         </div>
