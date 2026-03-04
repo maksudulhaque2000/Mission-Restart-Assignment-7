@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import NewTicketModal from "./components/NewTicketModal";
 import Home from "./pages/Home";
 import FAQ from "./pages/FAQ";
 import Changelog from "./pages/Changelog";
@@ -16,6 +17,7 @@ function App() {
   const [tickets, setTickets] = useState([]);
   const [inProgressTasks, setInProgressTasks] = useState([]);
   const [resolvedTasks, setResolvedTasks] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Initialize tickets from JSON - Load from localStorage first, fallback to JSON data
   useEffect(() => {
@@ -90,9 +92,14 @@ function App() {
     toast.success(`Ticket "${task.title}" has been resolved!`);
   };
 
-  // Handle new ticket button (placeholder)
+  // Handle new ticket button - Open modal
   const handleNewTicket = () => {
-    toast.info("New Ticket form would open here!");
+    setIsModalOpen(true);
+  };
+
+  // Add new ticket to the list
+  const handleAddTicket = (newTicket) => {
+    setTickets([newTicket, ...tickets]); // Add to beginning of array
   };
 
   return (
@@ -114,6 +121,13 @@ function App() {
 
         {/* Navbar */}
         <Navbar onNewTicket={handleNewTicket} />
+
+        {/* New Ticket Modal */}
+        <NewTicketModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onAddTicket={handleAddTicket}
+        />
 
         {/* Routes */}
         <Routes>
