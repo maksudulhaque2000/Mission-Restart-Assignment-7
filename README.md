@@ -15,6 +15,10 @@ A modern, responsive customer support ticket management system built with React,
 
 ---
 
+<div align="center">
+  <img src="./public/preview.png" height="400" width="800" alt="Haque's Portfolio Cover"/>
+</div>
+
 ## ✨ Features
 
 ### 🎯 Core Functionality
